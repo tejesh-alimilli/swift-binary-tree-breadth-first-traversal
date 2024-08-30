@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:swift-binary-tree-breadth-first-traversal}",
+            "name": "Debug demo",
+            "program": "${workspaceFolder:swift-binary-tree-breadth-first-traversal}\\.build\\debug\\demo.exe",
+            "preLaunchTask": "swift: Build Debug demo"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:swift-binary-tree-breadth-first-traversal}",
+            "name": "Release demo",
+            "program": "${workspaceFolder:swift-binary-tree-breadth-first-traversal}\\.build\\release\\demo.exe",
+            "preLaunchTask": "swift: Build Release demo"
+        }
+    ]
+}
