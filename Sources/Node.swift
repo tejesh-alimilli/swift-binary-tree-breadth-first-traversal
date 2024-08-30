@@ -7,19 +7,28 @@ class Node {
         data = d
     }
 
-    func addNodeRelation(_ relation: NodeRelation) {
+    @discardableResult func addNodeRelation(_ relation: NodeRelation) -> Bool {
         let child = Node(relation.child)
         if data == relation.parent {
             if relation.direction == "L" {
                 left = child
+                return true
             } else if relation.direction == "R" {
                 right = child
+                return true
             }
-            return
         }
 
-        left?.addNodeRelation(relation)
-        right?.addNodeRelation(relation)
+        if let left = left {
+            let success = left.addNodeRelation(relation)
+            if success {
+                return true
+            }
+        }
+        if let right = right {
+            return right.addNodeRelation(relation)
+        }
+        return false
     }
 
     func getChildrenDepthFirst() -> Array<Node> {
